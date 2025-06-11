@@ -1,4 +1,218 @@
 \documentclass[12pt,a4paper]{ctexart}
+\usepackage{ulem}
+\usepackage{circuitikz}
+    \def\V{\ \mathrm{V}}
+    \def\mV{\ \mathrm{mV}}
+    \def\kV{\ \mathrm{KV}}
+    \def\KV{\ \mathrm{KV}}
+    \def\MV{\ \mathrm{MV}}
+    \def\A{\ \mathrm{A}}
+    \def\mA{\ \mathrm{mA}}
+    \def\kA{\ \mathrm{KA}}
+    \def\KA{\ \mathrm{KA}}
+    \def\MA{\ \mathrm{MA}}
+    \def\O{\ \Omega}
+    \def\mO{\ \Omega}
+    \def\kO{\ \mathrm{K}\Omega}
+    \def\KO{\ \mathrm{K}\Omega}
+    \def\MO{\ \mathrm{M}\Omega}
+    \def\Hz{\ \mathrm{Hz}}
+    \def\N{\mathbb{N}}
+    \def\F{\mathbb{F}}
+    \def\Z{\mathbb{Z}}
+    \def\Q{\mathbb{Q}}
+    \def\R{\mathbb{R}}
+    \def\C{\mathbb{C}}
+    \def\T{\mathbb{T}}
+    \def\S{\mathbb{S}}
+    %\def\A{\mathbb{A}}
+    \def\I{\mathscr{I}}
+    \def\d{\mathrm{d}}
+    \def\p{\partial}
+    \usepackage[UTF8]{ctex}
+    \usepackage{hyperref}
+    \hypersetup{
+        colorlinks=true,
+        citecolor={blue},
+        linkcolor={blue},
+        urlcolor={orange},
+    }
+    \usepackage{amsmath}
+    \usepackage{mathrsfs}
+    \usepackage{amssymb}
+    \usepackage{pifont}
+    \usepackage{extarrows}
+    \usepackage{multicol}
+    \usepackage[a4paper]{geometry}
+        \geometry{top=0.75in}
+        \geometry{bottom=0.75in}
+        \geometry{left=0.75in}
+        \geometry{right=0.75in}
+        \geometry{marginparwidth=1.75cm}
+    \usepackage{amsthm}
+        \newtheoremstyle{MyLineTheoremStyle}
+            {11pt}
+            {11pt}
+            {\kaishu}
+            {}
+            {\bfseries}
+            {:\ \ }
+            {.5em}
+            {\textbf{#1}\thmnumber{#2}\ \ (\,\textbf{#3}\,)}
+        \theoremstyle{MyLineTheoremStyle}
+        \newtheorem{LineTheorem}{Theorem.\,}
+        \newtheoremstyle{MyBlockTheoremStyle}
+            {11pt}
+            {11pt}
+            {\kaishu}
+            {}
+            {\bfseries}
+            {：\\ \indent}
+            {.5em}
+            {\textbf{#1}\thmnumber{#2}\ \ (\,\textbf{#3}\,)}
+        \theoremstyle{MyBlockTheoremStyle}
+        \newtheorem{BlockTheorem}[LineTheorem]{Theorem.\,}
+        \newtheoremstyle{MySubsubsectionStyle}
+            {11pt}
+            {11pt}
+            {}
+            {}
+            {\bfseries}
+            {\\ \indent}
+            {0pt}
+            {\textbf{#3}}
+        \theoremstyle{MySubsubsectionStyle}
+        \newtheorem{definition}{}
+    \usepackage{xcolor}
+    \usepackage[strict]{changepage}
+    \usepackage{framed}
+        \definecolor{graybox_color}{rgb}{0.95,0.95,0.96}
+        \newenvironment{graybox}{
+        \def\FrameCommand{
+        \hspace{1pt}
+        {\color{gray}\small \vrule width 2pt}
+        {\color{graybox_color}\vrule width 4pt}
+        \colorbox{graybox_color}
+        }
+        \MakeFramed{\advance\hsize-\width\FrameRestore}
+        \noindent\hspace{-4.55pt}
+        \begin{adjustwidth}{}{7pt}
+        \vspace{2pt}\vspace{2pt}
+        }
+        {
+        \vspace{2pt}\end{adjustwidth}\endMakeFramed
+        }
+
+    \usepackage{matlab-prettifier}
+        \lstset{style=Matlab-editor}
+    \usepackage[most]{tcolorbox}
+    \usepackage{listings}
+        \tcbuselibrary{listings, skins, breakable}
+        \newfontfamily\codefont{Consolas}
+        \lstdefinestyle{MatlabStyle_inc}{
+            language=Matlab,
+            basicstyle=\small\ttfamily\codefont,
+            breakatwhitespace=false,
+            breaklines=true,
+            captionpos=b,
+            keepspaces=true,
+            numbers=left,
+            numbersep=15pt,
+            showspaces=false,
+            showstringspaces=false,
+            showtabs=false,
+            tabsize=2,
+            xleftmargin=15pt,
+            %frame=single,
+            frame=shadowbox,
+            %frameround=tttt,
+            framextopmargin=0pt,
+            framexbottommargin=0pt,
+            framexleftmargin=5pt,
+            framexrightmargin=5pt,
+            rulesepcolor=\color{red!20!green!20!blue!20},
+        }
+        \lstdefinestyle{MatlabStyle_src}{
+            language=Matlab,
+            basicstyle=\small\ttfamily\codefont,
+            breakatwhitespace=false,
+            breaklines=true,
+            captionpos=b,
+            keepspaces=true,
+            numbers=left,
+            numbersep=15pt,
+            showspaces=false,
+            showstringspaces=false,
+            showtabs=false,
+            tabsize=2,
+        }
+        \newtcblisting{matlablisting}{
+            top=0pt,
+            bottom=0pt,
+            left=-5pt,
+            right=-5pt,
+            listing only,
+            listing style=MatlabStyle_src,
+            breakable,
+            colback=white,
+            colframe=black!0,
+        }
+        \lstset{
+            style=MatlabStyle_inc,
+        }
+
+    \usepackage{booktabs}
+    \usepackage{tabularray}
+    \usepackage{longtable}
+    \usepackage{diagbox}
+    \usepackage{graphicx}
+    \usepackage{svg}
+        \svgsetup{
+            inkscapeexe = C:/aa_MySame/inkscape/bin/inkscape.exe,
+            inkscapelatex = false                 
+        }
+    \usepackage{subcaption}
+
+    \usepackage{caption}
+        \captionsetup[figure]{name=图}  
+        \captionsetup[table]{name=表}
+        \captionsetup{
+            labelfont=bf,
+            textfont=bf,
+            font=small  
+        }
+    \usepackage{float}
+
+    \newcommand*\circled[1]{\tikz[baseline=(char.base)]{\node[shape=circle,draw,inner sep=0.8pt, line width = 0.03em] (char) {\small \bfseries #1};}}
+
+    \usepackage{enumitem}
+        \setlist[enumerate]{
+            label=(\arabic*),
+            ref=\arabic*,
+            itemsep=0pt, parsep=0pt, topsep=0pt, partopsep=0pt, leftmargin=3.5em} 
+        \setlist[itemize]{itemsep=0pt, parsep=0pt, topsep=0pt, partopsep=0pt, leftmargin=3.5em}
+        \newlist{circledenum}{enumerate}{1}
+        \setlist[circledenum,1]{  
+            label=\protect\circled{\arabic*},
+            ref=\arabic*,
+            itemsep=0pt, parsep=0pt, topsep=0pt, partopsep=0pt, leftmargin=3.5em
+        }  
+
+        \renewcommand\thefootnote{\ding{\numexpr171+\value{footnote}}}
+        \bibliographystyle{unsrt}
+        \newcommand{\upcite}[1]{\textsuperscript{\cite{#1}}}
+        \newcommand{\cnabstractname}{序言}
+        \newenvironment{cnabstract}{
+            \par\Large
+            \noindent\mbox{}\hfill{\bfseries \cnabstractname}\hfill\mbox{}\par
+            \vskip 2.5ex
+            }{\par\vskip 2.5ex}
+
+    \usepackage{fontspec}
+        \setmainfont{SimSun}
+        \setCJKmainfont[AutoFakeBold=3]{SimSun}
+        \setmainfont{Times New Roman}
+
 \usepackage{titlesec,graphicx,amsmath,amssymb,tikz}
 \usetikzlibrary{shapes.geometric,arrows}
 \tikzstyle{startstop}=[rectangle,rounded corners,minimum width=1cm,minimum height=0.5cm,text centered,draw=black,fill=red!30]
@@ -113,6 +327,7 @@ Figure 2 shows the age distribution of the respondents, and it can be seen that 
     \caption{Age Distribution of Participants}
     \label{fig:age_distribution}
 \end{figure}
+\newpage
 
 Figure 3 shows the age distribution of participants using the Internet for the first time and it also shows the age of the participants. It can be seen that three-quarters of the participants in the primary and secondary school stage of the first contact network, and three-quarters of the participants have four years or more of the Internet experience, which proves that most of the respondents in this questionnaire survey have rich network experience.
 
@@ -122,6 +337,7 @@ Figure 3 shows the age distribution of participants using the Internet for the f
     \caption{Age Distribution of First Internet Use}
     \label{fig:first_use_age_distribution}
 \end{figure}
+\newpage
 
 Figure 4 shows the correct response rate of the abstract meme test, and the correct distribution of the participants is relatively normal, with most people having a basic or somewhat understanding of abstract culture (between 30\% and 80\% correct rate), and only a small number of people have little or very good understanding of abstract culture (less than 30\% or more than 80\% correct rate). It can be concluded that abstract culture has a good popularity.
 
@@ -131,6 +347,7 @@ Figure 4 shows the correct response rate of the abstract meme test, and the corr
     \caption{Accuracy Rate Distribution(10\% intervals)}
     \label{fig:abstract_test_accuracy}
 \end{figure}
+\newpage
 
 Figure 5 shows the relationship between respondents' accuracy and Internet age, while Figure 6 shows the relationship between respondents' accuracy and their age of first Internet use. After ignoring the data with too few samples (the sample size is less than five), it can be seen that the age of the Internet and the age of using the Internet for the first time have little impact on the accuracy rate, which proves that the popularity of abstract culture is universal among young people, and they can have a certain understanding of abstract culture regardless of the length of time they have been exposed to the Internet.
 
@@ -140,6 +357,7 @@ Figure 5 shows the relationship between respondents' accuracy and Internet age, 
     \caption{Relationship between Accuracy Rate Internet Experience}
     \label{fig:accuracy_vs_net_age}
 \end{figure}
+\newpage
 
 \begin{figure}[htbp]
     \centering
@@ -147,6 +365,7 @@ Figure 5 shows the relationship between respondents' accuracy and Internet age, 
     \caption{Relationship between Accuracy Rate and Age of First Internet Use}
     \label{fig:accuracy_vs_first_use_age}
 \end{figure}
+\newpage
 
 Next, we analyze the connection between abstract culture and online violence. As can be seen from Figure 7, more than 40\% of people are sure that abstract culture can lead to online violence, only a small number of people do not believe that abstract culture can lead to online violence, and many people are neutral.
 
@@ -156,6 +375,7 @@ Next, we analyze the connection between abstract culture and online violence. As
     \caption{Does Abstract Culture Tends to Trigger Cyber Violence?}
     \label{fig:abstract_vs_net_violence}
 \end{figure}
+\newpage
 
 After that, we made a scenario to construct the online conversation in a way that simulates abstract culture. Here's how the scenario was designed:
 
@@ -205,6 +425,7 @@ From this situational survey, we can conclude that the degree of violence of abs
     \caption{Cyber Violence Scenario Analysis}
     \label{fig:scenario_vs_net_violence}
 \end{figure}
+\newpage
 
 In summary, this survey shows that abstract culture has a wide range of awareness among young netizens aged 15-25, and there is no significant correlation between the level of awareness and the age of the Internet. The majority of respondents believe that abstract culture is prone to online violence, especially in certain small circles. The study found that with the expansion of the spread of abstract culture, its violent tendency will be relatively weakened, which indicates that there is an inverse relationship between epidemic and violence.
 
@@ -222,6 +443,7 @@ Python-based video comment area information collection: automatic crawling of co
     \caption{Overview of data sources}
     \label{fig:data_sources_1}
 \end{figure}
+\newpage
 
 For the data used for dictionary construction, we used the comment areas of CCTV Video and Sichuan Observation on the two news reports, which better covered the topics of "流浪猫问题" and "虐猫行为" born from the meme of “耄耋”, and at the same time had sufficient number of comments, which is beneficial for accurately obtaining the dictionary content.
 
@@ -231,6 +453,7 @@ For the data used for dictionary construction, we used the comment areas of CCTV
     \caption{Overview of data sources}
     \label{fig:data_sources_2}
 \end{figure}
+\newpage
 
 According to a number of video samples on different topics obtained by manual screening of video content, the BV1Gf4y1H71C video is a discussion on how to deal with the problem of stray cats, and the author believes that euthanasia needs to be used to solve the flood of stray cat population; The authors of BV1214y157aA use radical language to express a critique of stray cats as an invasive species that threaten the ecology; BV1Bu411H7oR is a news story about someone using a bow to shoot stray cats in a neighborhood; BV1zSoxY9ExQ and BV1QmQTYyE3s are a collection of short videos about cat behavior; BV1iXXhYpEcw documents a feral cat breaking into a home and displaying extreme aggression, which is now widely referred to as "耄耋" in abstract culture. BV13mNWeoEkC is a ghost animal entertainment video created using the video data of "耄耋".
 
@@ -276,6 +499,7 @@ data meme2: raw score: 78, total comments: 2369
     \centering
     \includegraphics[width=0.8\textwidth]{figures/meme_score.png}
 \end{figure}
+\newpage
 
 Then, the data of the seven comment areas were evaluated through aggression evaluation, and the statistical results are as follows: it can be seen that the comment areas of the two videos directly discussing the stray cat problem and the video about the news of stray cats showed significantly stronger aggression, while the language of the two secondary creations based on the stray cat problem was significantly less aggressive than the other samples.
 
@@ -283,6 +507,7 @@ Then, the data of the seven comment areas were evaluated through aggression eval
     \centering
     \includegraphics[width=0.8\textwidth]{figures/aggressive_analysis.png}
 \end{figure}
+\newpage
 
 Based on the aggressiveness assessment, the aggressiveness of comments in the comment area was evaluated, and the average level of aggression of comments on the same day was counted according to the release time, and the distribution of aggression in the comment area over time was obtained.
 The statistical results are as follows
@@ -298,6 +523,7 @@ data meme2.csv | number of comments：2369 | 2025-02-06 ~ 2025-05-14
     \centering
     \includegraphics[width=0.8\textwidth]{figures/aggressive_trend.png}
 \end{figure}
+\newpage
 
 The comment area of the discussion about stray cats showed a significant high level of aggression, showing two different manifestations: one with a significantly higher level of aggression for a long time, and the other with a high peak of aggression level much greater than that in other comment areas.
 
@@ -311,6 +537,7 @@ It can be seen that the topic relevance from the sample "discuss1" to "meme2" in
     \centering
     \includegraphics[width=0.8\textwidth]{figures/context_shift.png}
 \end{figure}
+\newpage
 
 Combined with the thematic diversity evaluation system, we extracted the hot topics discussed in the seven comment areas, and the statistical results are as follows
 
@@ -404,6 +631,7 @@ Topic 5: 看过, 微笑, official, 还原, 知道, tv, 程度, 不要, 一下, �
     \centering
     \includegraphics[width=0.8\textwidth]{figures/topic_diversity.png}
 \end{figure}
+\newpage
 
 The topic of cats is decreasing, more meme cultures such as "Hakimi" and "Hacking me" appear in the comment section, and the discussion videos of stray cats with high scores on aggression evaluation score are significantly lower in terms of topic diversity.
 
@@ -430,5 +658,9 @@ While the survey focused on the behaviors of online communities, our analysis of
 A detailed analysis of sample files data discuss1 and data meme1 reveals that comments in 2023 markedly differed in style from those in 2021. Commenters increasingly favored abstract, humorous language to critique serious social issues. By 2025, the popularity of derivative entertainment videos on this topic even surpassed that of 2021. The focus of discussions shifted from real-world issues (such as stray animals) to the internet-famous cat itself, becoming more lighthearted and less satirical or metaphorical. Only a minority remained aware of the original context, while the majority engaged purely for entertainment. This aligns with our hypothesis that the violent potential of abstract language diminishes as abstract culture becomes more mainstream.Although our evaluation scheme for the comment area data provides an explanation for the characteristics of online language, such an evaluation is not complete, especially the concealment and diversity of online language violence, which puts forward the requirement for a more detailed and comprehensive evaluation system
 
 \section{Appendixes}
+
+\begin{lstlisting}[language=python, style=MatlabStyle_src]
+
+\end{lstlisting}
 
 \end{document}
