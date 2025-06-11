@@ -227,7 +227,7 @@
 \author{
     {\small Team Members: Li Weicilin, Pan Hanlin, Zhang Shuo, Zhang Shukai}\\
 }
-\date{Last Updated: June 6, 2025}
+\date{Last Updated: \today}
 
 \begin{document}
 \maketitle
@@ -273,17 +273,15 @@ All meme content undergoes similar cycles of generation and transformation.
 
 Most cyberbullying stems from conflicts between anonymous groups and identifiable individuals/groups, where anonymity enables both meme-based attacks and evasion of platform oversight.
 
-\subsection{Research Objectives}
+\subsection{Research Objectives}%only Crawlerweb
 
-This study adopts a mixed-methods approach combining survey research and computational analysis to examine the relationship between internet meme culture and cyberbullying.
+This study aims to explore the complex relationship between internet abstract culture and cyberbullying by comprehensively examining the cognitive and behavioral patterns of online communities. The research unfolds as follows:
 
-The survey component involves administering a structured questionnaire to assess participants' familiarity with meme culture and experiences with cyberbullying. The questionnaire collects demographic data and evaluates meme comprehension through semi-open questions, while also measuring cyberbullying exposure through scenario-based items. This design captures subjective perceptions across diverse online communities.
+Based on the typical cases and characteristics of internet abstract culture and cyberbullying, we have designed an analytical framework to examine how abstract culture mediates violent expressions.
 
-For digital behavioral analysis, we employ web scraping to track violent meme evolution on platforms like Bilibili. The automated data collection focuses on comment sections, followed by NLP processing to quantify meme usage patterns and contextual shifts. Analytical techniques include frequency distribution mapping, sentiment analysis, and network visualization to examine how aggressive language transforms through meme circulation.
+Utilizing web scraping of video platforms and computational methods including natural language processing (NLP)-based comment analysis, we track the semantic and topical evolution of memes in different video content contexts while simultaneously assessing the level of cyberbullying in the corresponding comment sections. This approach enables us to quantify how meme transformations influence the level of aggression in discussion spaces.
 
-The integrated analysis correlates survey responses with observed behavioral patterns, using statistical models to test relationships between meme adoption and the normalization of formerly hostile expressions. Methodological rigor is ensured through pilot testing, reliability checks, and validation procedures across both research components.
-
-This dual-method design enables comprehensive investigation of both conscious perceptions and unconscious behavioral manifestations within meme-mediated online interactions.
+By analyzing the survey results and behavioral data, we will demonstrate the impact of the prevalence of abstract culture on aggressive cyberbullying phenomena.
 
 \begin{figure}[htbp]
     \centering
@@ -313,6 +311,8 @@ This dual-method design enables comprehensive investigation of both conscious pe
 \newpage
 
 \section{Research Methods}
+
+%\subsection{Questionnaire Survey}
 
 \subsection{Crawlerweb}
 
@@ -362,7 +362,7 @@ In order to investigate the characteristics of the discussion content in the com
 
 Aggressiveness evaluation combined with jieba and dictionary: The program automatically identifies the content of comments and the number of likes in each file, segments each comment, and assigns different weights to the offensive words according to the custom offensive dictionary, and calculates the total aggression score of each file based on the weighted accumulation of the number of likes. Finally, the program normalizes the aggressiveness index of comments, displays the aggressiveness level of each file in the form of a histogram, and outputs the total number of comments and the aggressiveness index of each file in the terminal, which is convenient for intuitive comparison and analysis of the distribution and intensity of aggressive comments in different data sources.
 
-Data presentation and result analysis:%这里是开始呈现结果的部分
+%Data presentation and result analysis:这里是开始呈现结果的部分
 
 \section{Main Results}
 
