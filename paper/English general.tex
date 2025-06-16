@@ -1,5 +1,6 @@
 \documentclass[12pt,a4paper]{ctexart}
 \usepackage{ulem}
+%\usepackage{natbib} % 加载natbib宏包，用于处理参考文献
 \usepackage{circuitikz}
     \def\V{\ \mathrm{V}}
     \def\mV{\ \mathrm{mV}}
@@ -199,8 +200,8 @@
         }  
 
         \renewcommand\thefootnote{\ding{\numexpr171+\value{footnote}}}
-        \bibliographystyle{unsrt}
-        \newcommand{\upcite}[1]{\textsuperscript{\cite{#1}}}
+        %        \bibliographystyle{unsrt}
+        \providecommand{\upcite}[1]{\textsuperscript{\cite{#1}}}
         \newcommand{\cnabstractname}{序言}
         \newenvironment{cnabstract}{
             \par\Large
@@ -237,35 +238,18 @@
 \section{Research Introduction}
 \subsection{Background}
 
-Keywords: Meme culture, Cyberbullying.
+Abstract culture originates from the unconventional behaviors and rhetoric deliberately employed by live streamers to engage viewers. Its spread is driven by anti-fans who spread the livestream clash by launching systematic smear campaigns on social media platforms such as Weibo. This culture exhibits three defining traits: abstractness through coded language requiring insider knowledge, strong group identity formation within specific communities, and pervasive irony that deconstructs mainstream norms through exaggerated imitation \cite{zheng2024chinese}.
 
-Abstract culture has undergone a process of dissemination, starting from live streaming rooms, spreading to social media, and eventually permeating the entire online space. This study examines the dynamic interplay between Abstract Culture and Cyberbullying within today's digital ecosystem.
+As this abstract language permeates mainstream Internet culture, its distinctive features - particularly its ironic deconstruction of meaning - have created surprising impacts on digital communication. When examining the evolution of specific terms (e.g., "牢大") across different time periods, we observe how abstract culture dramatically transforms word meanings and connotations. This process effectively deconstructs semantic associations, stripping words of their original hostile intentions and repurposing them as vehicles for social entertainment.
 
-Abstract Culture originated from unconventional behaviors and rhetoric deliberately employed by live streamers to attract viewership. Its dissemination was propelled by anti-fans, who propagate livestream conflicts by launching systematic smear campaigns on social media platforms like Weibo. These attacks reframed targets as "villains" or "reactionaries," constituting a novel form of cyberbullying centered on public stigmatization.
+This linguistic deconstruction, rooted in the philosophical tradition of challenging binary oppositions and hierarchical structures in language \cite{liu2019deconstruction}, manifests distinctly in online communication. The process mirrors Derrida's critique of structuralism by destabilizing fixed meanings - where words traditionally carrying antagonistic valuations (e.g., superior/inferior, aggressive/neutral) are reconfigured into neutral or playful signifiers. In the context of online violence, this deconstructive mechanism transforms originally hostile lexicon: terms once weaponized for intergroup attacks gradually shed their harmful connotations through collective reappropriation. Our study quantitatively evaluates this phenomenon through the case of "耄耋". Originally emerging from online cat-related debates as an accusatory term (implying excessive feline idolization by "worshipping cats as fathers"), its meaning was deconstructed through abstract culture's characteristic irony, eventually becoming a harmless, even endearing expression in pet communities.
 
-To evade content moderation, anti-fans developed Abstract Language—a linguistic tool leveraging semantic ambiguity, metaphorical abbreviations, and polysemic symbols. This enabled covert propagation of hostile content.
+\subsection{Significance}
+Our study  tries to  complex  inter- play between Abstract Culture and cyberbullying in the digital ecosystem.
 
-As Abstract Language permeated mainstream internet culture, its function underwent fundamental transformation: ordinary users detached it from its original malicious intent, repurposing it as social entertainment symbols. Case studies (e.g., violent memes like "牢大" and "耄耋(猫爹)") reveal how widespread adoption dissociated such expressions from aggression, recasting them as neutral humor. Collective reinterpretation where users derive divergent meanings from identical phrases generated communal amusement, facilitating Abstract Culture's deep integration into daily online communication and reshaping digital cultural norms.
+The research reveals a profound cultural transformation: as Abstract Language permeated mainstream online spaces, ordinary users divorced it from its original malicious intent. Case studies demonstrate how widespread adoption reinterpreted these expressions as neutral social entertainment symbols. This collective reappropriation—where users derive divergent, often humorous meanings from identical phrases—effectively dissolved their aggressive connotations. 
 
-\subsection{Research Significance}
-
-This  study  holds  significant value by  illuminating the  complex  inter- play between Abstract Culture and cyberbullying in the digital ecosystem.
-
-The research reveals a pro- found cultural transformation: as Abstract Language permeated mainstream online spaces, ordinary users divorced it from its original malicious intent. Case studies demonstrate how widespread adoption reinterpreted these ex- pressions as neutral social entertainment symbols. This collective reappropri- ation—where users derive divergent, often humorous meanings from identical phrases—effectively dissolved their aggressive connotations.This insight fundamentally advances our understanding of semiotic fluidity in internet culture.As an increasingly popular form of communication in the Internet age, it is of great significance to explore the dynamic role of abstract culture on online language in order to limit the emerging cyberbullying problem that may exist in the Internet age
-
-\subsection{Research Questions}  change for onlyCrawlerWeb
-%Given the general background of internet meme culture development and the definition, nature, and impact of cyberbullying, our research team aims to investigate the evolving relationship between meme culture and cyberbullying, as well as its influence on a broad online population. This issue is divided into three key aspects:
-%Temporal Framework of Internet Meme Culture: Due to the rapid and diversified development of internet meme culture, establishing an up-to-date information framework is essential. This includes analyzing its role in online communication, practical utility, and circulation (i.e., widespread adoption among netizens). A clear understanding of this aspect will facilitate further analysis of meme culture.
-%Origins of Cyberbullying in Online Communication: We seek to examine how violent language emerges on internet platforms, particularly in exchanges involving abstract online language. This will allow us to analyze instances of cyberbullying that arise within meme-based communication.
-%Dissipation of Cyberbullying Through Abstraction: Over time, cyberbullying behaviors may spread beyond perpetrator circles, with violent language being abstracted, popularized, and eventually neutralized through humor or widespread use. Our team will also analyze this process of dissipation.
-%\subsection{Hypotheses}
-%The inherent connections within meme content facilitate rapid dissemination through familiarity.
-%As abstract vocabulary gains popularity, its violent connotations diminish while cultural influence persists.
-%All meme content undergoes similar cycles of generation and transformation.
-%Most cyberbullying stems from conflicts between anonymous groups and identifiable individuals/groups, where anonymity enables both meme-based attacks and evasion of platform oversight.
-
-%How do public perceptions of cyberbullying manifestations differ between abstract culture contexts and conventional online spaces?%公众对网络暴力的认知在抽象文化语境与常规网络空间中有何差异？
-%（问卷较好回答了这个问题）
+\subsection{Research Questions}  
 How can the violence of language be examined? %如何对语言的暴力性进行考察？
 
 How can we examine the abstract cultural elements that emerge from communication?%如何对交流中出现的抽象文化元素进行考察？ 
@@ -282,32 +266,32 @@ Utilizing web scraping of video platforms and computational methods including na
 
 By analyzing the survey results and behavioral data, we will demonstrate the impact of the prevalence of abstract culture on aggressive cyberbullying phenomena.
 
-\begin{figure}[htbp]
-    \centering
-    \resizebox{\textwidth}{!}{
-        \begin{tikzpicture}[node distance=2cm]
-            \node (start)[startstop]{Meme Culture \& Cyberbullying};
-            \node (process1)[process,below of=start,yshift=0cm,xshift=-4cm]{Meme Culture Definition/Properties};
-            \node (process2)[process,below of=start,yshift=0cm,xshift=4cm]{Cyberbullying Definition/Characteristics};
-            \node (process3)[process,below of=start,yshift=-2cm,xshift=0cm]{Interrelationship Analysis};
-            \node (process4)[process,below of=process3,yshift=0cm,xshift=-3cm]{Cyberbullying Emergence};
-            \node (process5)[process,below of=process3,yshift=0cm,xshift=3cm]{Violence Neutralization};
-            \node (end)[startstop,below of=process3,yshift=-2cm,xshift=0cm]{Analytical Results};
-            \draw [arrow] (start) -- (process1);
-            \draw [arrow] (start) -- (process2);
-            \draw [arrow] (process1) -- (process3);
-            \draw [arrow] (process2) -- (process3);
-            \draw [arrow] (process3) -- (process4);
-            \draw [arrow] (process3) -- (process5);
-            \draw [arrow] (process3) -- (end);
-            \draw [arrow] (process4) -- (end);
-            \draw [arrow] (process5) -- (end);
-        \end{tikzpicture}
-    }
-    \caption{Research Framework}
-    \label{fig:research_process}
-\end{figure}
-\newpage
+%\begin{figure}[htbp]
+%    \centering
+%    \resizebox{\textwidth}{!}{
+%        \begin{tikzpicture}[node distance=2cm]
+%            \node (start)[startstop]{Meme Culture \& Cyberbullying};
+%            \node (process1)[process,below of=start,yshift=0cm,xshift=-4cm]{Meme Culture Definition/Properties};
+%            \node (process2)[process,below of=start,yshift=0cm,xshift=4cm]{Cyberbullying Definition/Characteristics};
+%            \node (process3)[process,below of=start,yshift=-2cm,xshift=0cm]{Interrelationship Analysis};
+%            \node (process4)[process,below of=process3,yshift=0cm,xshift=-3cm]{Cyberbullying Emergence};
+%            \node (process5)[process,below of=process3,yshift=0cm,xshift=3cm]{Violence Neutralization};
+%            \node (end)[startstop,below of=process3,yshift=-2cm,xshift=0cm]{Analytical Results};
+%            \draw [arrow] (start) -- (process1);
+%            \draw [arrow] (start) -- (process2);
+%            \draw [arrow] (process1) -- (process3);
+%            \draw [arrow] (process2) -- (process3);
+%            \draw [arrow] (process3) -- (process4);
+%            \draw [arrow] (process3) -- (process5);
+%            \draw [arrow] (process3) -- (end);
+%            \draw [arrow] (process4) -- (end);
+%            \draw [arrow] (process5) -- (end);
+%        \end{tikzpicture}
+%    }
+%    \caption{Research Framework}
+%    \label{fig:research_process}
+%\end{figure}
+%\newpage
 
 \section{Research Methods}
 
@@ -546,7 +530,22 @@ While the survey focused on the behaviors of online communities, our analysis of
 
 A detailed analysis of sample files data discuss1 and data meme1 reveals that comments in 2023 markedly differed in style from those in 2021. Commenters increasingly favored abstract, humorous language to critique serious social issues. By 2025, the popularity of derivative entertainment videos on this topic even surpassed that of 2021. The focus of discussions shifted from real-world issues (such as stray animals) to the internet-famous cat itself, becoming more lighthearted and less satirical or metaphorical. Only a minority remained aware of the original context, while the majority engaged purely for entertainment. This aligns with our hypothesis that the violent potential of abstract language diminishes as abstract culture becomes more mainstream.Although our evaluation scheme for the comment area data provides an explanation for the characteristics of online language, such an evaluation is not complete, especially the concealment and diversity of online language violence, which puts forward the requirement for a more detailed and comprehensive evaluation system
 
-\section{References}
+\section*{References}
+
+\begin{thebibliography}{99} % 99是参考文献的最大编号
+
+\bibitem{liu2019deconstruction}
+Yuanyuan Liu.
+\newblock 解构主义视角下的汉语言文字学探讨.
+\newblock 《艺术家》, 2019, (11): 173--174.
+
+\bibitem{zheng2024chinese}
+Bowen Zheng.
+\newblock Chinese Internet Abstraction Culture and the Impact of Economy.
+\newblock In: Proceedings of the 8th International Conference on Economic Management and Green Development, University of New South Wales, Sydney, Australia, 2024, p. 18348.
+\newblock DOI: 10.54254/2754-1169/129/2024.18348.
+
+\end{thebibliography}
 
 \end{document}
 
