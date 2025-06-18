@@ -338,7 +338,7 @@ Jieba: An efficient and easy-to-use Chinese word segmentation tool that can accu
 
 Combined with the language sentiment color analysis of jieba, we screened the above high-frequency words for the second time, and obtained high-frequency words with more obvious negative emotions, which obviously not only have strong aggression, but also have a stronger correlation with the discussion of stray cats, so as to obtain a more accurate judgment of the offensive dictionary content of aggression in the comment area.
 
-LDA: A classic unsupervised machine learning algorithm used primarily for topic modeling of text data. It analyzes the distribution of words in a document, automatically identifies the underlying topic structure, and represents each document as a probability mix of multiple topics, while each topic is represented as a probability distribution of a series of related words.
+LDA\cite{blei2003latent}: A classic unsupervised machine learning algorithm used primarily for topic modeling of text data. It analyzes the distribution of words in a document, automatically identifies the underlying topic structure, and represents each document as a probability mix of multiple topics, while each topic is represented as a probability distribution of a series of related words.
 
 Meme association evaluation based on preset dictionaries: The program automatically identifies the "comment content" and "like" fields in each file, and determines whether each comment contains the specified primary or secondary meme keyword. If the primary keyword appears in the comment, the score will be accumulated according to the number of likes (1 if the number of likes is 0), and the score will be increased by 1 if the secondary keyword appears. Each comment that contains any of the prompt keywords counts towards the "Prompt Comments". Finally, the program counts the total number of valid comments, the number of meme comments and the normalized meme influence score (total score/number of comments) of each file, and displays the meme influence of each file in the form of a histogram, and outputs detailed statistical results on the terminal, which is convenient for detailed comparison of the propagation and influence of memes in different data sources.
 
@@ -548,6 +548,15 @@ Bowen Zheng.
 Yuanyuan Liu.
 \newblock 解构主义视角下的汉语言文字学探讨.
 \newblock 《艺术家》, 2019, (11): 173--174.
+
+\bibitem{blei2003latent}
+David M. Blei, Andrew Y. Ng, and Michael I. Jordan.
+\newblock Latent Dirichlet Allocation.
+\newblock \textit{Journal of Machine Learning Research}, 3 (2003), pp. 993--1022.
+\newblock Submitted 2/02; Published 1/03.
+\newblock Computer Science Division, University of California, Berkeley, CA 94720, USA; Computer Science Department, Stanford University, Stanford, CA 94305, USA; Computer Science Division and Department of Statistics, University of California, Berkeley, CA 94720, USA.
+\newblock Editor: John Lafferty.
+
 
 \end{thebibliography}
 
