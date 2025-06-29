@@ -1,8 +1,219 @@
 \documentclass[12pt,a4paper]{ctexart}
-\usepackage{titlesec,graphicx,amsmath,amssymb,tikz}
-\usepackage{times}
 \usepackage{ulem}
-\usepackage{booktabs}
+\usepackage{circuitikz}
+    \def\V{\ \mathrm{V}}
+    \def\mV{\ \mathrm{mV}}
+    \def\kV{\ \mathrm{KV}}
+    \def\KV{\ \mathrm{KV}}
+    \def\MV{\ \mathrm{MV}}
+    \def\A{\ \mathrm{A}}
+    \def\mA{\ \mathrm{mA}}
+    \def\kA{\ \mathrm{KA}}
+    \def\KA{\ \mathrm{KA}}
+    \def\MA{\ \mathrm{MA}}
+    \def\O{\ \Omega}
+    \def\mO{\ \Omega}
+    \def\kO{\ \mathrm{K}\Omega}
+    \def\KO{\ \mathrm{K}\Omega}
+    \def\MO{\ \mathrm{M}\Omega}
+    \def\Hz{\ \mathrm{Hz}}
+    \def\N{\mathbb{N}}
+    \def\F{\mathbb{F}}
+    \def\Z{\mathbb{Z}}
+    \def\Q{\mathbb{Q}}
+    \def\R{\mathbb{R}}
+    \def\C{\mathbb{C}}
+    \def\T{\mathbb{T}}
+    \def\S{\mathbb{S}}
+    %\def\A{\mathbb{A}}
+    \def\I{\mathscr{I}}
+    \def\d{\mathrm{d}}
+    \def\p{\partial}
+    \usepackage[UTF8]{ctex}
+    \usepackage{hyperref}
+    \hypersetup{
+        colorlinks=true,
+        citecolor={blue},
+        linkcolor={blue},
+        urlcolor={orange},
+    }
+    \usepackage{amsmath}
+    \usepackage{mathrsfs}
+    \usepackage{amssymb}
+    \usepackage{pifont}
+    \usepackage{extarrows}
+    \usepackage{multicol}
+    \usepackage[a4paper]{geometry}
+        \geometry{top=0.75in}
+        \geometry{bottom=0.75in}
+        \geometry{left=0.75in}
+        \geometry{right=0.75in}
+        \geometry{marginparwidth=1.75cm}
+    \usepackage{amsthm}
+        \newtheoremstyle{MyLineTheoremStyle}
+            {11pt}
+            {11pt}
+            {\kaishu}
+            {}
+            {\bfseries}
+            {:\ \ }
+            {.5em}
+            {\textbf{#1}\thmnumber{#2}\ \ (\,\textbf{#3}\,)}
+        \theoremstyle{MyLineTheoremStyle}
+        \newtheorem{LineTheorem}{Theorem.\,}
+        \newtheoremstyle{MyBlockTheoremStyle}
+            {11pt}
+            {11pt}
+            {\kaishu}
+            {}
+            {\bfseries}
+            {：\\ \indent}
+            {.5em}
+            {\textbf{#1}\thmnumber{#2}\ \ (\,\textbf{#3}\,)}
+        \theoremstyle{MyBlockTheoremStyle}
+        \newtheorem{BlockTheorem}[LineTheorem]{Theorem.\,}
+        \newtheoremstyle{MySubsubsectionStyle}
+            {11pt}
+            {11pt}
+            {}
+            {}
+            {\bfseries}
+            {\\ \indent}
+            {0pt}
+            {\textbf{#3}}
+        \theoremstyle{MySubsubsectionStyle}
+        \newtheorem{definition}{}
+    \usepackage{xcolor}
+    \usepackage[strict]{changepage}
+    \usepackage{framed}
+        \definecolor{graybox_color}{rgb}{0.95,0.95,0.96}
+        \newenvironment{graybox}{
+        \def\FrameCommand{
+        \hspace{1pt}
+        {\color{gray}\small \vrule width 2pt}
+        {\color{graybox_color}\vrule width 4pt}
+        \colorbox{graybox_color}
+        }
+        \MakeFramed{\advance\hsize-\width\FrameRestore}
+        \noindent\hspace{-4.55pt}
+        \begin{adjustwidth}{}{7pt}
+        \vspace{2pt}\vspace{2pt}
+        }
+        {
+        \vspace{2pt}\end{adjustwidth}\endMakeFramed
+        }
+
+    \usepackage{matlab-prettifier}
+        \lstset{style=Matlab-editor}
+    \usepackage[most]{tcolorbox}
+    \usepackage{listings}
+        \tcbuselibrary{listings, skins, breakable}
+        \newfontfamily\codefont{Consolas}
+        \lstdefinestyle{MatlabStyle_inc}{
+            language=Matlab,
+            basicstyle=\small\ttfamily\codefont,
+            breakatwhitespace=false,
+            breaklines=true,
+            captionpos=b,
+            keepspaces=true,
+            numbers=left,
+            numbersep=15pt,
+            showspaces=false,
+            showstringspaces=false,
+            showtabs=false,
+            tabsize=2,
+            xleftmargin=15pt,
+            %frame=single,
+            frame=shadowbox,
+            %frameround=tttt,
+            framextopmargin=0pt,
+            framexbottommargin=0pt,
+            framexleftmargin=5pt,
+            framexrightmargin=5pt,
+            rulesepcolor=\color{red!20!green!20!blue!20},
+        }
+        \lstdefinestyle{MatlabStyle_src}{
+            language=Matlab,
+            basicstyle=\small\ttfamily\codefont,
+            breakatwhitespace=false,
+            breaklines=true,
+            captionpos=b,
+            keepspaces=true,
+            numbers=left,
+            numbersep=15pt,
+            showspaces=false,
+            showstringspaces=false,
+            showtabs=false,
+            tabsize=2,
+        }
+        \newtcblisting{matlablisting}{
+            top=0pt,
+            bottom=0pt,
+            left=-5pt,
+            right=-5pt,
+            listing only,
+            listing style=MatlabStyle_src,
+            breakable,
+            colback=white,
+            colframe=black!0,
+        }
+        \lstset{
+            style=MatlabStyle_inc,
+        }
+
+    \usepackage{booktabs}
+    \usepackage{tabularray}
+    \usepackage{longtable}
+    \usepackage{diagbox}
+    \usepackage{graphicx}
+    \usepackage{svg}
+        \svgsetup{
+            inkscapeexe = C:/aa_MySame/inkscape/bin/inkscape.exe,
+            inkscapelatex = false                 
+        }
+    \usepackage{subcaption}
+
+    \usepackage{caption}
+        \captionsetup[figure]{name=图}  
+        \captionsetup[table]{name=表}
+        \captionsetup{
+            labelfont=bf,
+            textfont=bf,
+            font=small  
+        }
+    \usepackage{float}
+
+    \newcommand*\circled[1]{\tikz[baseline=(char.base)]{\node[shape=circle,draw,inner sep=0.8pt, line width = 0.03em] (char) {\small \bfseries #1};}}
+
+    \usepackage{enumitem}
+        \setlist[enumerate]{
+            label=(\arabic*),
+            ref=\arabic*,
+            itemsep=0pt, parsep=0pt, topsep=0pt, partopsep=0pt, leftmargin=3.5em} 
+        \setlist[itemize]{itemsep=0pt, parsep=0pt, topsep=0pt, partopsep=0pt, leftmargin=3.5em}
+        \newlist{circledenum}{enumerate}{1}
+        \setlist[circledenum,1]{  
+            label=\protect\circled{\arabic*},
+            ref=\arabic*,
+            itemsep=0pt, parsep=0pt, topsep=0pt, partopsep=0pt, leftmargin=3.5em
+        }  
+
+        \renewcommand\thefootnote{\ding{\numexpr171+\value{footnote}}}
+        \bibliographystyle{unsrt}
+        \newcommand{\upcite}[1]{\textsuperscript{\cite{#1}}}
+        \newcommand{\cnabstractname}{序言}
+        \newenvironment{cnabstract}{
+            \par\Large
+            \noindent\mbox{}\hfill{\bfseries \cnabstractname}\hfill\mbox{}\par
+            \vskip 2.5ex
+            }{\par\vskip 2.5ex}
+
+    \usepackage{fontspec}
+        \setmainfont{SimSun}
+        \setCJKmainfont[AutoFakeBold=3]{SimSun}
+        \setmainfont{Times New Roman}
+
+\usepackage{titlesec,graphicx,amsmath,amssymb,tikz}
 \usetikzlibrary{shapes.geometric,arrows}
 \tikzstyle{startstop}=[rectangle,rounded corners,minimum width=1cm,minimum height=0.5cm,text centered,draw=black,fill=red!30]
 \tikzstyle{process}=[rectangle,minimum width=1cm,minimum height=0.5cm,text centered,draw=black,fill=orange!30]
@@ -10,14 +221,13 @@
 \graphicspath{{img/}}
 \titleformat{\section}{\normalfont\large\bfseries}{\thesection}{1em}{}
 \title{
-    {\bfseries\fontsize{12}{14}\selectfont Research Process Summary}\\
-    {\normalfont\fontsize{11}{13}\selectfont The Relationship Between Internet Meme Culture and Cyberbullying}
+    {\Large Research Process Summary}\\
+    {\large The Relationship Between Internet Meme Culture and Cyberbullying}
 }
 \author{
-    {\normalfont\fontsize{11}{13}\selectfont Team Members: Li Weiqilin, Pan Hanlin, Zhang Shuo}\\
-    {\normalfont\fontsize{11}{13}\selectfont Class: 2, Group: 6}
+    {\small Team Members: Li Weicilin, Pan Hanlin, Zhang Shuo, Zhang Shukai}\\
 }
-\date{Last Updated: \today}
+\date{Last Updated: June 6, 2025}
 
 \begin{document}
 \maketitle
@@ -27,35 +237,53 @@
 \section{Research Introduction}
 \subsection{Background}
 
-Abstract culture originates from the unconventional behaviors and rhetoric deliberately employed by live streamers to engage viewers. Its spread is driven by anti-fans who spread the livestream clash by launching systematic smear campaigns on social media platforms such as Weibo. This culture exhibits three defining traits: abstractness through coded language requiring insider knowledge, strong group identity formation within specific communities, and pervasive irony that deconstructs mainstream norms through exaggerated imitation \cite{zheng2024chinese}.
+Keywords: Meme culture, Cyberbullying.
 
-As this abstract language permeates mainstream Internet culture, its distinctive features - particularly its ironic deconstruction of meaning - have created surprising impacts on digital communication. When examining the evolution of specific terms (e.g., "牢大") across different time periods, we observe how abstract culture dramatically transforms word meanings and connotations. This process effectively deconstructs semantic associations, stripping words of their original hostile intentions and repurposing them as vehicles for social entertainment.
+Abstract culture has undergone a process of dissemination, starting from live streaming rooms, spreading to social media, and eventually permeating the entire online space. This study examines the dynamic interplay between Abstract Culture and Cyberbullying within today's digital ecosystem.
 
-This linguistic deconstruction, rooted in the philosophical tradition of challenging binary oppositions and hierarchical structures in language \cite{liu2019deconstruction}, manifests distinctly in online communication. The process mirrors Derrida's critique of structuralism by destabilizing fixed meanings - where words traditionally carrying antagonistic valuations (e.g., superior/inferior, aggressive/neutral) are reconfigured into neutral or playful signifiers. In the context of online violence, this deconstructive mechanism transforms originally hostile lexicon: terms once weaponized for intergroup attacks gradually shed their harmful connotations through collective reappropriation. Our study quantitatively evaluates this phenomenon through the case of "耄耋". Originally emerging from online cat-related debates as an accusatory term (implying excessive feline idolization by "worshipping cats as fathers"), its meaning was deconstructed through abstract culture's characteristic irony, eventually becoming a harmless, even endearing expression in pet communities.
+Abstract Culture originated from unconventional behaviors and rhetoric deliberately employed by live streamers to attract viewership. Its dissemination was propelled by anti-fans, who propagate livestream conflicts by launching systematic smear campaigns on social media platforms like Weibo. These attacks reframed targets as "villains" or "reactionaries," constituting a novel form of cyberbullying centered on public stigmatization.
 
-\subsection{Significance}
+To evade content moderation, anti-fans developed Abstract Language—a linguistic tool leveraging semantic ambiguity, metaphorical abbreviations, and polysemic symbols. This enabled covert propagation of hostile content.
 
-Our study  tries to  complex  inter- play between Abstract Culture and cyberbullying in the digital ecosystem.
+As Abstract Language permeated mainstream internet culture, its function underwent fundamental transformation: ordinary users detached it from its original malicious intent, repurposing it as social entertainment symbols. Case studies (e.g., violent memes like "牢大" and "耄耋(猫爹)") reveal how widespread adoption dissociated such expressions from aggression, recasting them as neutral humor. Collective reinterpretation where users derive divergent meanings from identical phrases generated communal amusement, facilitating Abstract Culture's deep integration into daily online communication and reshaping digital cultural norms.
 
-The research reveals a profound cultural transformation: as Abstract Language permeated mainstream online spaces, ordinary users divorced it from its original malicious intent. Case studies demonstrate how widespread adoption reinterpreted these expressions as neutral social entertainment symbols. This collective reappropriation—where users derive divergent, often humorous meanings from identical phrases—effectively dissolved their aggressive connotations. 
+\subsection{Research Significance}
 
-\subsection{Research Questions}  
-How can the violence of language be examined? %如何对语言的暴力性进行考察？
+This  study  holds  significant value by  illuminating the  complex  inter- play between Abstract Culture and cyberbullying in the digital ecosystem.
 
-How can we examine the abstract cultural elements that emerge from communication?%如何对交流中出现的抽象文化元素进行考察？
+The research reveals a pro- found cultural transformation: as Abstract Language permeated mainstream online spaces, ordinary users divorced it from its original malicious intent. Case studies demonstrate how widespread adoption reinterpreted these ex- pressions as neutral social entertainment symbols. This collective reappropri- ation—where users derive divergent, often humorous meanings from identical phrases—effectively dissolved their aggressive connotations.This insight fundamentally advances our understanding of semiotic fluidity in internet culture.As an increasingly popular form of communication in the Internet age, it is of great significance to explore the dynamic role of abstract culture on online language in order to limit the emerging cyberbullying problem that may exist in the Internet age
 
-What is the impact of abstract culture on online violence?%抽象文化对网络暴力有何影响？
+\subsection{Research Questions}
 
-\subsection{Research Objectives}%only Crawlerweb
+Given the general background of internet meme culture development and the definition, nature, and impact of cyberbullying, our research team aims to investigate the evolving relationship between meme culture and cyberbullying, as well as its influence on a broad online population. This issue is divided into three key aspects:
 
-This study aims to explore the complex relationship between internet abstract culture and cyberbullying by comprehensively examining the cognitive and behavioral patterns of online communities. The research unfolds as follows:
+Temporal Framework of Internet Meme Culture: Due to the rapid and diversified development of internet meme culture, establishing an up-to-date information framework is essential. This includes analyzing its role in online communication, practical utility, and circulation (i.e., widespread adoption among netizens). A clear understanding of this aspect will facilitate further analysis of meme culture.
 
-Based on the typical cases and characteristics of internet abstract culture and cyberbullying, we have designed an analytical framework to examine how abstract culture mediates violent expressions.
+Origins of Cyberbullying in Online Communication: We seek to examine how violent language emerges on internet platforms, particularly in exchanges involving abstract online language. This will allow us to analyze instances of cyberbullying that arise within meme-based communication.
 
-Utilizing web scraping of video platforms and computational methods including natural language processing (NLP)-based comment analysis, we track the semantic and topical evolution of memes in different video content contexts while simultaneously assessing the level of cyberbullying in the corresponding comment sections. This approach enables us to quantify how meme transformations influence the level of aggression in discussion spaces.
+Dissipation of Cyberbullying Through Abstraction: Over time, cyberbullying behaviors may spread beyond perpetrator circles, with violent language being abstracted, popularized, and eventually neutralized through humor or widespread use. Our team will also analyze this process of dissipation.
 
-By analyzing the survey results and behavioral data, we will demonstrate the impact of the prevalence of abstract culture on aggressive cyberbullying phenomena.
-\newpage
+\subsection{Hypotheses}
+
+The inherent connections within meme content facilitate rapid dissemination through familiarity.
+
+As abstract vocabulary gains popularity, its violent connotations diminish while cultural influence persists.
+
+All meme content undergoes similar cycles of generation and transformation.
+
+Most cyberbullying stems from conflicts between anonymous groups and identifiable individuals/groups, where anonymity enables both meme-based attacks and evasion of platform oversight.
+
+\subsection{Research Objectives}
+
+This study adopts a mixed-methods approach combining survey research and computational analysis to examine the relationship between internet meme culture and cyberbullying.
+
+The survey component involves administering a structured questionnaire to assess participants' familiarity with meme culture and experiences with cyberbullying. The questionnaire collects demographic data and evaluates meme comprehension through semi-open questions, while also measuring cyberbullying exposure through scenario-based items. This design captures subjective perceptions across diverse online communities.
+
+For digital behavioral analysis, we employ web scraping to track violent meme evolution on platforms like Bilibili. The automated data collection focuses on comment sections, followed by NLP processing to quantify meme usage patterns and contextual shifts. Analytical techniques include frequency distribution mapping, sentiment analysis, and network visualization to examine how aggressive language transforms through meme circulation.
+
+The integrated analysis correlates survey responses with observed behavioral patterns, using statistical models to test relationships between meme adoption and the normalization of formerly hostile expressions. Methodological rigor is ensured through pilot testing, reliability checks, and validation procedures across both research components.
+
+This dual-method design enables comprehensive investigation of both conscious perceptions and unconscious behavioral manifestations within meme-mediated online interactions.
 
 \begin{figure}[htbp]
     \centering
@@ -65,21 +293,18 @@ By analyzing the survey results and behavioral data, we will demonstrate the imp
             \node (process1)[process,below of=start,yshift=0cm,xshift=-4cm]{Meme Culture Definition/Properties};
             \node (process2)[process,below of=start,yshift=0cm,xshift=4cm]{Cyberbullying Definition/Characteristics};
             \node (process3)[process,below of=start,yshift=-2cm,xshift=0cm]{Interrelationship Analysis};
-            \node (process4)[process,below of=process3,yshift=0cm,xshift=0cm]{Research Methods: Web crawlers. (NLP analysis, etc)};
-            \node (process5)[process,below of=process4,yshift=0cm,xshift=-4.5cm]{Track the Changes of Meme within Different Video Contexts};
-            \node (process6)[process,below of=process4,yshift=0cm,xshift=4.5cm]{Assess the Level of Cyberbullying};
-            \node (process7)[process,below of=process4,yshift=-2cm,xshift=0cm]{Data Analysis. (Correlation between the degree of Meme and the level of Cyberbullying, etc)};
-            \node (end)[startstop,below of=process7,yshift=0cm,xshift=0cm]{Analytical Results: Impact of Abstract Culture on Cyberbullying};
+            \node (process4)[process,below of=process3,yshift=0cm,xshift=-3cm]{Cyberbullying Emergence};
+            \node (process5)[process,below of=process3,yshift=0cm,xshift=3cm]{Violence Neutralization};
+            \node (end)[startstop,below of=process3,yshift=-2cm,xshift=0cm]{Analytical Results};
             \draw [arrow] (start) -- (process1);
             \draw [arrow] (start) -- (process2);
             \draw [arrow] (process1) -- (process3);
             \draw [arrow] (process2) -- (process3);
             \draw [arrow] (process3) -- (process4);
-            \draw [arrow] (process4) -- (process5);
-            \draw [arrow] (process4) -- (process6);
-            \draw [arrow] (process5) -- (process7);
-            \draw [arrow] (process6) -- (process7);
-            \draw [arrow] (process7) -- (end);
+            \draw [arrow] (process3) -- (process5);
+            \draw [arrow] (process3) -- (end);
+            \draw [arrow] (process4) -- (end);
+            \draw [arrow] (process5) -- (end);
         \end{tikzpicture}
     }
     \caption{Research Framework}
@@ -88,8 +313,6 @@ By analyzing the survey results and behavioral data, we will demonstrate the imp
 \newpage
 
 \section{Research Methods}
-
-%\subsection{Questionnaire Survey}
 
 \subsection{Crawlerweb}
 
@@ -129,7 +352,7 @@ Jieba: An efficient and easy-to-use Chinese word segmentation tool that can accu
 
 Combined with the language sentiment color analysis of jieba, we screened the above high-frequency words for the second time, and obtained high-frequency words with more obvious negative emotions, which obviously not only have strong aggression, but also have a stronger correlation with the discussion of stray cats, so as to obtain a more accurate judgment of the offensive dictionary content of aggression in the comment area.
 
-LDA\cite{blei2003latent}: A classic unsupervised machine learning algorithm used primarily for topic modeling of text data. It analyzes the distribution of words in a document, automatically identifies the underlying topic structure, and represents each document as a probability mix of multiple topics, while each topic is represented as a probability distribution of a series of related words.
+LDA: A classic unsupervised machine learning algorithm used primarily for topic modeling of text data. It analyzes the distribution of words in a document, automatically identifies the underlying topic structure, and represents each document as a probability mix of multiple topics, while each topic is represented as a probability distribution of a series of related words.
 
 Meme association evaluation based on preset dictionaries: The program automatically identifies the "comment content" and "like" fields in each file, and determines whether each comment contains the specified primary or secondary meme keyword. If the primary keyword appears in the comment, the score will be accumulated according to the number of likes (1 if the number of likes is 0), and the score will be increased by 1 if the secondary keyword appears. Each comment that contains any of the prompt keywords counts towards the "Prompt Comments". Finally, the program counts the total number of valid comments, the number of meme comments and the normalized meme influence score (total score/number of comments) of each file, and displays the meme influence of each file in the form of a histogram, and outputs detailed statistical results on the terminal, which is convenient for detailed comparison of the propagation and influence of memes in different data sources.
 
@@ -138,11 +361,12 @@ Topic relevance evaluation based on preset dictionaries: The program realizes th
 In order to investigate the characteristics of the discussion content in the comment area, we combined jieba and LDA to implement a Chinese text topic analysis system: through LDA topic modeling, the core topics and keyword distribution of the comment content of each document were extracted. The system first preprocessed the original text such as Chinese word segmentation and stop word filtering, and then constructed a word frequency matrix and trained an LDA model to identify the five main topics and their representative keywords in each file. Topic diversity is quantified by calculating the normalized entropy value, and finally the visualization results are generated.
 
 Aggressiveness evaluation combined with jieba and dictionary: The program automatically identifies the content of comments and the number of likes in each file, segments each comment, and assigns different weights to the offensive words according to the custom offensive dictionary, and calculates the total aggression score of each file based on the weighted accumulation of the number of likes. Finally, the program normalizes the aggressiveness index of comments, displays the aggressiveness level of each file in the form of a histogram, and outputs the total number of comments and the aggressiveness index of each file in the terminal, which is convenient for intuitive comparison and analysis of the distribution and intensity of aggressive comments in different data sources.
-\newpage
 
-\section{Main Results}%Data presentation and result analysis:
+Data presentation and result analysis:%这里是开始呈现结果的部分
 
-%\subsection{Results of Questionnaire Survey}
+\section{Main Results}
+
+%\subsection{问卷调查结果}
 
 \subsection{Results of Crawlerweb}
 
@@ -311,80 +535,163 @@ The aggressiveness in the comment area is highly correlated with the nature of t
 The analysis of the theme reveals the trend of online language from the discussion of practical problems to the culture of pluralism and memes.
 
 This experiment provides quantitative support for understanding the influence of abstract culture on the characteristics of online language, and reveals the dynamic change characteristics of aggressive language in online discussion.
-\newpage
 
 \section{Discussion}
 
-This experiment preliminarily explores the relationship between abstract culture and online violence by investigating the various situations of netizens in cyberspace, especially the language of netizens in the comment area of video websites.
-%删去对问卷结果的讨论
-%Most survey participants had at least a basic or relatively good understanding of abstract culture, indicating the prevalence of abstract culture is widespread among young people. However, we acknowledge that the survey results may suffer from significant survivorship bias, as respondents were more likely to be individuals deeply embedded in online communities with ample leisure time for internet entertainment. Thus, while the survey does not prove the universality of abstract culture across all demographics, it does demonstrate the widespread use of abstract language in transmitting information across the internet.A larger survey may be able to better characterize the relationship between abstract culture and a larger group of people.
+This experiment conducted a preliminary exploration of the relationship between abstract culture and cyberbullying by surveying various aspects of internet users' behavior in online spaces.
 
-%We observed that most participants had a good grasp of abstract culture, yet the vast majority believed they had neither experienced nor participated in cyberbullying. One possible explanation is that many netizens may not recognize subtle, abstract forms of violent insinuations directed at them. Another possibility is that most cyberbullying incidents are short-lived, eventually evolving into broader, longer-lasting meme behaviors over time.
+Most survey participants had at least a basic or relatively good understanding of abstract culture, indicating the prevalence of abstract culture is widespread among young people. However, we acknowledge that the survey results may suffer from significant survivorship bias, as respondents were more likely to be individuals deeply embedded in online communities with ample leisure time for internet entertainment. Thus, while the survey does not prove the universality of abstract culture across all demographics, it does demonstrate the widespread use of abstract language in transmitting information across the internet.A larger survey may be able to better characterize the relationship between abstract culture and a larger group of people
 
-%While the survey focused on the behaviors of online communities, 
-Our analysis of comment data prioritized the evolution of specific abstract phenomena. Through manual examination of comments under videos related to the Mao-Die meme, we found that after 2023, the abstract and metaphorical nature of comments significantly increased—a trend linked to the rise of abstract culture. Abstract expression transcended its original boundaries of pure entertainment and, in videos resembling news content, lost some of its playful tone, instead being imbued with stronger satirical, political, and reflective meanings by netizens.
+We observed that most participants had a good grasp of abstract culture, yet the vast majority believed they had neither experienced nor participated in cyberbullying. One possible explanation is that many netizens may not recognize subtle, abstract forms of violent insinuations directed at them. Another possibility is that most cyberbullying incidents are short-lived, eventually evolving into broader, longer-lasting meme behaviors over time.
 
-A detailed analysis of sample files data discuss1 and data meme1 reveals that comments in 2023 markedly differed in style from those in 2021. Commenters increasingly favored abstract, humorous language to critique serious social issues. By 2025, the popularity of derivative entertainment videos on this topic even surpassed that of 2021. The focus of discussions shifted from real-world issues (such as stray animals) to the internet-famous cat itself, becoming more lighthearted and less satirical or metaphorical. Only a minority remained aware of the original context, while the majority engaged purely for entertainment. This aligns with our hypothesis that the violent potential of abstract language diminishes as abstract culture becomes more mainstream.Although our evaluation scheme for the comment area data provides an explanation for the characteristics of online language, such an evaluation is not complete, especially the concealment and diversity of online language violence, which puts forward the requirement for a more detailed and comprehensive evaluation system.
-\newpage
+While the survey focused on the behaviors of online communities, our analysis of comment data prioritized the evolution of specific abstract phenomena. Through manual examination of comments under videos related to the Mao-Die meme, we found that after 2023, the abstract and metaphorical nature of comments significantly increased—a trend linked to the rise of abstract culture. Abstract expression transcended its original boundaries of pure entertainment and, in videos resembling news content, lost some of its playful tone, instead being imbued with stronger satirical, political, and reflective meanings by netizens.
+
+A detailed analysis of sample files data discuss1 and data meme1 reveals that comments in 2023 markedly differed in style from those in 2021. Commenters increasingly favored abstract, humorous language to critique serious social issues. By 2025, the popularity of derivative entertainment videos on this topic even surpassed that of 2021. The focus of discussions shifted from real-world issues (such as stray animals) to the internet-famous cat itself, becoming more lighthearted and less satirical or metaphorical. Only a minority remained aware of the original context, while the majority engaged purely for entertainment. This aligns with our hypothesis that the violent potential of abstract language diminishes as abstract culture becomes more mainstream.Although our evaluation scheme for the comment area data provides an explanation for the characteristics of online language, such an evaluation is not complete, especially the concealment and diversity of online language violence, which puts forward the requirement for a more detailed and comprehensive evaluation system
 
 \section{References}
-
-\begin{thebibliography}{99} % 99是参考文献的最大编号
-
-\bibitem{zheng2024chinese}
-Bowen Zheng.
-\newblock Chinese Internet Abstraction Culture and the Impact of Economy.
-\newblock In: Proceedings of the 8th International Conference on Economic Management and Green Development, University of New South Wales, Sydney, Australia, 2024, p. 18348.
-\newblock DOI: 10.54254/2754-1169/129/2024.18348.
-
-\bibitem{liu2019deconstruction}
-Yuanyuan Liu.
-\newblock 解构主义视角下的汉语言文字学探讨.
-\newblock 《艺术家》, 2019, (11): 173--174.
-
-\bibitem{blei2003latent}
-David M. Blei, Andrew Y. Ng, and Michael I. Jordan.
-\newblock Latent Dirichlet Allocation.
-\newblock \textit{Journal of Machine Learning Research}, 3 (2003), pp. 993--1022.
-\newblock Submitted 2/02; Published 1/03.
-\newblock Computer Science Division, University of California, Berkeley, CA 94720, USA; Computer Science Department, Stanford University, Stanford, CA 94305, USA; Computer Science Division and Department of Statistics, University of California, Berkeley, CA 94720, USA.
-\newblock Editor: John Lafferty.
+%参考文献部分
+%jieba库
+%LDA
+%代码开源位置
 
 
-\end{thebibliography}
 
-\section{Contribution}
 
-\begin{table}[h]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%**************问卷调查暂存在此
+\section{Old version}
+\subsection{Questionnaire Survey}
+
+Objective: To investigate the understanding of meme culture among different age groups, genders, and education levels, as well as their perception of the relationship between meme culture and cyberbullying.
+
+Survey Results (intact Analysis):
+
+Figure 2 shows the age distribution of the respondents, and it can be seen that the participants are mainly concentrated in the age group of 15-25 years old, that is, post-zeros, who are also the main participants in online activities.
+
+\begin{figure}[htbp]
     \centering
-    \caption{Team Member Contributions}
-    \begin{tabular}{lccccc}
-    \toprule
-    & Introduction & Method & Data & Results & Discussion \\
-    \midrule
-    Li Weiqilin & & & \checkmark & \checkmark & \\
-    Pan Hanlin & \checkmark & & \checkmark & \checkmark & \\
-    Zhang Shuo & & \checkmark & & & \checkmark \\
-    \bottomrule
-    \end{tabular}
-\end{table}
+    \includegraphics[width=0.8\textwidth]{img/age_distribution.png}
+    \caption{Age Distribution of Participants}
+    \label{fig:age_distribution}
+\end{figure}
+\newpage
+
+Figure 3 shows the age distribution of participants using the Internet for the first time and it also shows the age of the participants. It can be seen that three-quarters of the participants in the primary and secondary school stage of the first contact network, and three-quarters of the participants have four years or more of the Internet experience, which proves that most of the respondents in this questionnaire survey have rich network experience.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.8\textwidth]{img/first_use_age_distribution.png}
+    \caption{Age Distribution of First Internet Use}
+    \label{fig:first_use_age_distribution}
+\end{figure}
+\newpage
+
+Figure 4 shows the correct response rate of the abstract meme test, and the correct distribution of the participants is relatively normal, with most people having a basic or somewhat understanding of abstract culture (between 30\% and 80\% correct rate), and only a small number of people have little or very good understanding of abstract culture (less than 30\% or more than 80\% correct rate). It can be concluded that abstract culture has a good popularity.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.8\textwidth]{img/abstract_test_accuracy.png}
+    \caption{Accuracy Rate Distribution(10\% intervals)}
+    \label{fig:abstract_test_accuracy}
+\end{figure}
+\newpage
+
+Figure 5 shows the relationship between respondents' accuracy and Internet age, while Figure 6 shows the relationship between respondents' accuracy and their age of first Internet use. After ignoring the data with too few samples (the sample size is less than five), it can be seen that the age of the Internet and the age of using the Internet for the first time have little impact on the accuracy rate, which proves that the popularity of abstract culture is universal among young people, and they can have a certain understanding of abstract culture regardless of the length of time they have been exposed to the Internet.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.8\textwidth]{img/accuracy_vs_net_age.png}
+    \caption{Relationship between Accuracy Rate Internet Experience}
+    \label{fig:accuracy_vs_net_age}
+\end{figure}
+\newpage
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.8\textwidth]{img/accuracy_vs_first_use_age.png}
+    \caption{Relationship between Accuracy Rate and Age of First Internet Use}
+    \label{fig:accuracy_vs_first_use_age}
+\end{figure}
+\newpage
+
+Next, we analyze the connection between abstract culture and online violence. As can be seen from Figure 7, more than 40\% of people are sure that abstract culture can lead to online violence, only a small number of people do not believe that abstract culture can lead to online violence, and many people are neutral.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.8\textwidth]{img/abstract_vs_net_violence.png}
+    \caption{Does Abstract Culture Tends to Trigger Cyber Violence?}
+    \label{fig:abstract_vs_net_violence}
+\end{figure}
+\newpage
+
+After that, we made a scenario to construct the online conversation in a way that simulates abstract culture. Here's how the scenario was designed:
+
+Scenario Description (The Chinese text needs to be retained due to the context.)
+
+Scenario 1: Discussion on the gaming forum
+
+A：你这套出装根本不行，实战里就是送人头。
+
+B：你玩过几场啊就在这指点江山？
+
+A：急了？
+
+Scenario 2: Comment section of prank videos
+
+A：第二桶泡面难吃，那为什么不先吃第二桶再吃第一桶呢？
+
+B：不对，我觉得这样第一桶就变成第二桶了。
+
+C：乐子，没看见人家在玩抽象？
+
+Scenario 3: Debate Among Fans of Social Media Stars
+
+A：你家哥哥这演技也能叫好？粉丝滤镜真厚。
+
+B：你行你上啊，键盘侠就会bb。
+
+A：这就急了？（小丑emoji）
+
+Scenario 4: Bickering on the forum
+
+A：废物也就只能躲在屏幕后吠了，现实里敢吭一声？
+
+B：你妈没教你怎么说话是吧？
+
+A：急得开始咬人了？建议回炉重造哦。（微笑emoji）
+
+Scenarios 1 and 2 reflect the conversations in the comment areas of game forums and some live videos in daily life, with a large number of participants and a wide range of popularity. Scenarios 3 and 4 reflect conversations such as fan arguments and scolding each other, with a focus on a specific group of people and a limited range of popularity.
+
+As shown in Table 8 and Figure 8, more than 60\% of people in scenarios 1 and 2 believe that there is no violence or only mild violence, and less than 1 in 10 people believe that it is severe violence, which is significantly less severe. Scenarios 3 and 4 suggest that the number of people with moderate and severe violence has increased significantly, indicating that the level of violence is more severe.
+
+From this situational survey, we can conclude that the degree of violence of abstract culture decreases when the popularity increases. This echoes the birth and development of abstract culture, which is often born in the communication of small groups with a strong offensive purpose, and after widespread dissemination, people pay more attention to its entertainment and weaken the aggressiveness.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.8\textwidth]{img/scenario_vs_net_violence.png}
+    \caption{Cyber Violence Scenario Analysis}
+    \label{fig:scenario_vs_net_violence}
+\end{figure}
+\newpage
+
+In summary, this survey shows that abstract culture has a wide range of awareness among young netizens aged 15-25, and there is no significant correlation between the level of awareness and the age of the Internet. The majority of respondents believe that abstract culture is prone to online violence, especially in certain small circles. The study found that with the expansion of the spread of abstract culture, its violent tendency will be relatively weakened, which indicates that there is an inverse relationship between epidemic and violence.
 
 \end{document}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
